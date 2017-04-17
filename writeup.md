@@ -1,4 +1,4 @@
-##Writeup
+## Writeup
 ---
 
 **Advanced Lane Finding Project**
@@ -26,10 +26,10 @@ The goals / steps of this project are the following:
 [video2]: ./project_video_output.mp4 "Completed Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
-###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
-###Camera Calibration
+### Camera Calibration
 
 The code for this step is contained in the camera_calibration method of the IPython notebook "model.ipynb".  
 
@@ -39,19 +39,19 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 [image7]: ./output_images/calibrated0.png "Calibrated"
 
-###Pipeline (single images)
+### Pipeline (single images)
 
-####1. Distortion-correction
+#### 1. Distortion-correction
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 [image8]: ./output_images/undistorted0.png "Undistorted"
 
-####2. Color transforms, gradients and other methods to create a thresholded binary image
+#### 2. Color transforms, gradients and other methods to create a thresholded binary image
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps in the `transform_image` method). I used a mask to find all yellow objects. Also, I thresholded the S channel of the image. Lastly, I used a combination of Sobel, Magnitude and Direction of the gradient to find lane lines. Here's an example of my output for this step.
 [image9]: ./output_images/threshold0.png "Thresholded"
 
-####3. Perspective Transform
+#### 3. Perspective Transform
 
 The code for my perspective transform includes a function called `perspective_transform`. I chose the hardcode the source and destination points in the following manner:
 
@@ -86,16 +86,16 @@ I verified that my perspective transform was working as expected by drawing the 
 
 [image9]: ./output_images/perspective0.png "Perspective Transform"
 
-####4. Identifying Lane-Line Pixels and Fit their positions with a polynomial
+#### 4. Identifying Lane-Line Pixels and Fit their positions with a polynomial
 
 I created a histogram of the lower half of each transformed image. I found the 2 locations where there pixel count was highest and set them as the start of each lane.  For the first image, I started from scratch and searched from the bottom of each image in the `Find_Lane_Start` method. Then, I used a sliding window approach to search for the rest of the lane. Once all the lane pixels were found, I used numpy to fit a 2nd Order polynomial to each line. After the first image, I used the values calculated from the previous image to find the lanes again in the `find_lane` method.
 [image10]:./output_images/plotted-birdseye.png "Lane Lines"
 
-####5. Radius of Curvature of the Lane and Center Offset.
+#### 5. Radius of Curvature of the Lane and Center Offset.
 
 I did this at the bottom of the `Find_Lane_Start` and `find_lane` methods. Anytime the radius in higher than 1100m, I set the value to zero. This is because as a line becomes straighter, the radius approaches infinity, which makes no sense when you're driving.  
 
-####6. Final Output.
+#### 6. Final Output.
 
 In the `illustrate` method, I take all the information that has been collected and combine it into the final output image.
 
@@ -103,12 +103,12 @@ In the `illustrate` method, I take all the information that has been collected a
 
 ---
 
-###Pipeline (video)
+### Pipeline (video)
 
 Here's a [link to my video result](./project_video_output.mp4)
 
 ---
 
-###Discussion
+### Discussion
 
 The hardest part of this project is finding the right values for the thresholds and gradients. I played around with doing perspective transforms on the original thresholded images and thresholding transformed images. It's hard to say that there is a perfect way to find lanes. The experimentation process took forever. Also, there is a  considerable amount of time taken to process each image which makes the whole pipeline very slow when running on just a CPU. It is much faster on GPUs.
