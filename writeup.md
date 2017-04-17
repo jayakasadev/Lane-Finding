@@ -16,14 +16,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[Undistorted](/Lane-Finding/tree/master/output_images/undistorted0.png)
-[Road Transformed](Lane-Finding/tree/master/output_images/test1.jpg)
-[Binary Example](Lane-Finding/tree/master/examples/binary_combo_example.jpg)
-[Warp Example](Lane-Finding/tree/master/examples/warped_straight_lines.jpg)
-[Fit Visual](Lane-Finding/tree/master/examples/color_fit_lines.jpg)
-[Output](Lane-Finding/tree/master/examples/example_output.jpg)
-[Video](Lane-Finding/project_video.mp4)
-[Completed Video](Lane-Finding/project_video_output.mp4)
+[Undistorted]: ./output_images/undistorted0.png
+[Road Transformed]: ./output_images/test1.jpg
+[Binary Example]: ./examples/binary_combo_example.jpg
+[Warp Example]: ./examples/warped_straight_lines.jpg
+[Fit Visual]: ./examples/color_fit_lines.jpg
+[Output]: ./examples/example_output.jpg
+[Video]: ./project_video.mp4
+[Completed Video]: ./project_video_output.mp4
 
 ---
 ### Camera Calibration
