@@ -16,14 +16,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/undistorted0.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
-[video2]: ./project_video_output.mp4 "Completed Video"
+![Undistorted][./output_images/undistorted0.png]
+![Road Transformed]: ./test_images/test1.jpg]
+![Binary Example][./examples/binary_combo_example.jpg]
+![Warp Example][./examples/warped_straight_lines.jpg]
+![Fit Visual][./examples/color_fit_lines.jpg]
+![Output][./examples/example_output.jpg]
+![Video][./project_video.mp4]
+![Completed Video][./project_video_output.mp4]
 
 ---
 ### Camera Calibration
