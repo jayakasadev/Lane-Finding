@@ -13,17 +13,16 @@ The goals/steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
+# (Image References)
 
-[//]: # (Image References)
-
-[Undistorted]: ./output_images/undistorted0.png
-[Road Transformed]: ./output_images/test1.jpg
-[Binary Example]: ./examples/binary_combo_example.jpg
-[Warp Example]: ./examples/warped_straight_lines.jpg
-[Fit Visual]: ./examples/color_fit_lines.jpg
-[Output]: ./examples/example_output.jpg
-[Video]: ./project_video.mp4
-[Completed Video]: ./project_video_output.mp4
+[Undistorted](output_images/undistorted0.png)
+[Road Transformed](output_images/test1.jpg)
+[Binary Example](examples/binary_combo_example.jpg)
+[Warp Example](examples/warped_straight_lines.jpg)
+[Fit Visual](examples/color_fit_lines.jpg)
+[Output](examples/example_output.jpg)
+[Video](project_video.mp4)
+[Completed Video](project_video_output.mp4)
 
 ---
 ### Camera Calibration
@@ -34,7 +33,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-[Calibrated](/Lane-Finding/output_images/calibrated0.png)
+[Calibrated](output_images/calibrated0.png)
 
 ### Pipeline (single images)
 
@@ -42,14 +41,14 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 
-[Undistorted](/Lane-Finding/output_images/undistorted0.png)
+[Undistorted](output_images/undistorted0.png)
 
 #### 2. Color transforms, gradients and other methods to create a thresholded binary image
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps in the `transform_image` method). I used a mask to find all yellow objects. Also, I thresholded the S channel of the image. Lastly, I used a combination of Sobel, Magnitude and Direction of the gradient to find lane lines. Here's an example of my output for this step.
 undistorted0.png 
 
-[Thresholded](/Lane-Finding/output_images/threshold0.png)
+[Thresholded](output_images/threshold0.png)
 
 #### 3. Perspective Transform
 
@@ -84,13 +83,13 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-[Perspective Transform](Lane-Finding/output_images/perspective0.png)
+[Perspective Transform](output_images/perspective0.png)
 
 #### 4. Identifying Lane-Line Pixels and Fit their positions with a polynomial
 
 I created a histogram of the lower half of each transformed image. I found the 2 locations where there pixel count was highest and set them as the start of each lane.  For the first image, I started from scratch and searched from the bottom of each image in the `Find_Lane_Start` method. Then, I used a sliding window approach to search for the rest of the lane. Once all the lane pixels were found, I used numpy to fit a 2nd Order polynomial to each line. After the first image, I used the values calculated from the previous image to find the lanes again in the `find_lane` method.
 
-[Lane Lines](Lane-Finding/output_images/plotted-birdseye.png)
+[Lane Lines](output_images/plotted-birdseye.png)
 
 #### 5. Radius of Curvature of the Lane and Center Offset.
 
@@ -100,7 +99,7 @@ I did this at the bottom of the `Find_Lane_Start` and `find_lane` methods. Anyti
 
 In the `illustrate` method, I take all the information that has been collected and combine it into the final output image.
 
-[Final Output](Lane-Finding/output_images/final_output.png)
+[Final Output](output_images/final_output.png)
 
 ---
 
