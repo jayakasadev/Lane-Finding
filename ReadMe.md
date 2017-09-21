@@ -15,8 +15,8 @@ The goals/steps of this project are the following:
 
 # (Image References)
 
-![Undistorted](output_images/undistorted0.png)
-![Road Transformed](output_images/test1.jpg)
+![Undistorted](output_images/undistorted0.jpg)
+![Road Transformed](output_images/transform0.png)
 ![Binary Example](examples/binary_combo_example.jpg)
 ![Warp Example](examples/warped_straight_lines.jpg)
 ![Fit Visual](examples/color_fit_lines.jpg)
