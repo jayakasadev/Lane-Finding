@@ -107,8 +107,8 @@ In the `illustrate` method, I take all the information that has been collected a
 ### Pipeline (video)
 
 Final Product:
-* [Basic Sample](Lane-Finding/project_video_complete.mp4)
-* [Challenge Video](Lane-Finding/harder_challenge_video.mp4)
+* [Basic Sample](project_video_complete.mp4)
+* [Challenge Video](harder_challenge_video.mp4)
 
 ---
 
